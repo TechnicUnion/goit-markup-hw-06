@@ -8,7 +8,7 @@
   --second-text-color: #ffffff;
   --accent-color: #2196f3;
   --portfolio-bgc-btn: #f5f4fa;
-  --icons-color: #AFB1B8;
+  --icons-color: #afb1b8;
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   --duration: 250ms;
 }
@@ -222,7 +222,11 @@ img {
 
 .hero {
   background-color: var(--second-background-color);
-  background-image: linear-gradient(rgba(47, 48, 58, 0.4),rgba(47, 48, 58, 0.4)), url(../images/hero.jpg);
+  background-image: linear-gradient(
+      rgba(47, 48, 58, 0.4),
+      rgba(47, 48, 58, 0.4)
+    ),
+    url(../images/hero.jpg);
   max-width: 1600px;
   background-position: center;
   margin: 0 auto;
@@ -386,10 +390,11 @@ img {
 
 .team-soc-link {
   fill: var(--icons-color);
-  transition: background-color var(--duration) var(--timing-function), fill var(--duration) var(--timing-function);
+  transition: background-color var(--duration) var(--timing-function),
+    fill var(--duration) var(--timing-function);
 }
 
-.team-soc-link:hover, 
+.team-soc-link:hover,
 .team-soc-link:focus {
   fill: var(--second-text-color);
   background-color: var(--accent-color);
@@ -428,9 +433,10 @@ img {
   width: 100%;
   height: 100%;
   fill: var(--icons-color);
-  border: 1px solid #AFB1B8;
+  border: 1px solid #afb1b8;
   border-radius: 4px;
-  transition: border var(--duration) var(--timing-function), fill var(--duration) var(--timing-function);
+  transition: border var(--duration) var(--timing-function),
+    fill var(--duration) var(--timing-function);
 }
 
 .clients-link:hover,
@@ -565,7 +571,8 @@ img {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
-  transition: opacity var(--duration) var(--timing-function), visibility var(--duration) var(--timing-function);
+  transition: opacity var(--duration) var(--timing-function),
+    visibility var(--duration) var(--timing-function);
 }
 
 .backdrop.is-hidden .modal {
@@ -580,8 +587,9 @@ img {
   width: 528px;
   min-height: 581px;
   background-color: var(--main-background-color);
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
   transition: transform var(--duration) var(--timing-function);
   padding: 40px;
 }
@@ -598,6 +606,15 @@ img {
   background-color: transparent;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
+}
+
+.modal-close-btn:hover > .modal-close-icon,
+.modal-close-btn:focus > .modal-close-icon {
+  fill: var(--accent-color);
+}
+
+.modal-close-icon {
+  transition: fill var(--duration) var(--timing-function);
 }
 
 .is-hidden {
@@ -636,9 +653,33 @@ img {
 .modal-input {
   width: 100%;
   height: 40px;
+  padding-left: 42px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
-  background-color: transparent;
+  transition: border-color var(--duration) var(--timing-function);
+}
+
+.modal-input:focus,
+.modal-text-area:focus {
+  border-color: var(--accent-color);
+  outline: none;
+}
+
+.modal-wrap {
+  position: relative;
+}
+
+.modal-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  fill: var(--main-text-color);
+  transition: fill var(--duration) var(--timing-function);
+}
+
+.modal-input:focus + .modal-icon {
+  fill: var(--accent-color);
 }
 
 .modal-text-area {
@@ -648,6 +689,7 @@ img {
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   resize: none;
+  transition: border-color var(--duration) var(--timing-function);
 }
 
 .modal-text-area::placeholder {
@@ -662,13 +704,46 @@ img {
   display: flex;
   align-items: center;
   margin-bottom: 30px;
+  margin-left: 12px;
 }
 
 .modal-checkbox-label {
+  position: relative;
+  display: flex;
+  align-items: center;
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
   color: var(--text-color);
+}
+
+.modal-checkbox-label span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8.38px;
+  opacity: 1;
+  transition: opacity var(--duration) var(--timing-function);
+}
+
+.check {
+  position: absolute;
+  background-color: var(--accent-color);
+  fill: var(--main-background-color);
+  opacity: 0;
+  transition: opacity var(--duration) var(--timing-function);
+}
+
+.modal-checkbox-label a {
+  color: var(--accent-color);
+}
+
+.modal-checkbox-input:checked + .modal-checkbox-label span {
+  opacity: 0;
+}
+
+.modal-checkbox-input:checked ~ .check {
+  opacity: 1;
 }
 
 .modal-btn {
@@ -703,7 +778,9 @@ img {
   color: inherit;
   cursor: pointer;
   padding: 6px 22px;
-  transition: color var(--duration) var(--timing-function), background-color var(--duration) var(--timing-function), box-shadow var(--duration) var(--timing-function);
+  transition: color var(--duration) var(--timing-function),
+    background-color var(--duration) var(--timing-function),
+    box-shadow var(--duration) var(--timing-function);
 }
 
 .portfolio-btn.current {
@@ -715,7 +792,8 @@ img {
 .portfolio-btn:focus {
   color: var(--second-text-color);
   background-color: var(--accent-color);
-  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
 /* ----------GALERY LIST------------- */
@@ -735,7 +813,8 @@ img {
 
 .portfolio-galery-link:hover,
 .portfolio-galery-link:focus {
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 .portfolio-galery-item {
@@ -767,7 +846,6 @@ img {
   transform: translateY(100%);
   transition: transform var(--duration) var(--timing-function);
 }
-
 
 .portfolio-card-content {
   padding: 20px 24px;
