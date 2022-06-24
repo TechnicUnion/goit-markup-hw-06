@@ -715,6 +715,10 @@ img {
   color: var(--text-color);
 }
 
+.checkbox-label a {
+  color: var(--accent-color);
+}
+
 .checkbox-label span {
   position: relative;
   display: flex;
