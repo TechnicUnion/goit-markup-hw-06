@@ -701,15 +701,12 @@ img {
   color: rgba(117, 117, 117, 0.5);
 }
 
-.modal-checkbox {
-  display: flex;
-  align-items: center;
+.checkbox {
   margin-bottom: 30px;
   margin-left: 12px;
 }
 
-.modal-checkbox-label {
-  position: relative;
+.checkbox-label {
   display: flex;
   align-items: center;
   font-size: 14px;
@@ -718,33 +715,26 @@ img {
   color: var(--text-color);
 }
 
-.modal-checkbox-label span {
+.checkbox-label span {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 8.38px;
-  opacity: 1;
-  transition: opacity var(--duration) var(--timing-function);
 }
 
-.check {
+.check-wrap {
   position: absolute;
-  background-color: var(--accent-color);
-  fill: var(--main-background-color);
-  opacity: 0;
-  transition: opacity var(--duration) var(--timing-function);
+  display: none;
 }
 
-.modal-checkbox-label a {
-  color: var(--accent-color);
+.checkbox-input:checked + .checkbox-label .check-wrap {
+  display: flex;
+  align-items: center;
 }
 
-.modal-checkbox-input:checked + .modal-checkbox-label span {
-  opacity: 0;
-}
-
-.modal-checkbox-input:checked ~ .check {
-  opacity: 1;
+.checkbox-input:checked + .checkbox-label .checkbox-icon {
+  fill: transparent;
 }
 
 .modal-btn {
@@ -758,7 +748,6 @@ img {
 .portfolio-btn-list {
   display: flex;
   justify-content: center;
-  /* gap: 8px; */
   margin-bottom: 50px;
 }
 
