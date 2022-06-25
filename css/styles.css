@@ -661,7 +661,8 @@ img {
 }
 
 .modal-input:focus,
-.modal-text-area:focus {
+.modal-text-area:focus,
+.footer-input:focus {
   border-color: var(--accent-color);
   outline: none;
 }
