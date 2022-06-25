@@ -733,6 +733,10 @@ img {
   display: none;
 }
 
+.checkbox-input:focus + .checkbox-label .checkbox-icon {
+  fill: var(--accent-color);
+}
+
 .checkbox-input:checked + .checkbox-label .check-wrap {
   display: flex;
   align-items: center;
